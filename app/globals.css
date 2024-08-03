@@ -1,0 +1,66 @@
+/* styles/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-fadeIn {
+    @apply opacity-0 transition-opacity duration-1000;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-dropdown {
+    @apply transition-all ease-out duration-300 transform;
+  }
+
+  .animate-highlight {
+    @apply ring-2 ring-blue-500;
+    animation: highlight 1s ease-in-out;
+  }
+
+  @keyframes highlight {
+    0% {
+      box-shadow: 0 0 0px 0 rgba(59, 130, 246, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 10px 4px rgba(59, 130, 246, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 0px 0 rgba(59, 130, 246, 0.5);
+    }
+  }
+
+  /* Autofill styles for dark mode */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s !important;
+    -webkit-text-fill-color: #e2e8f0 !important; /* text-gray-200 for dark mode */
+    caret-color: #e2e8f0 !important; /* text-gray-200 for dark mode */
+    border: 1px solid #4a5568 !important; /* border-gray-600 for dark mode */
+    background-color: #374151 !important; /* bg-gray-700 for dark mode */
+  }
+
+  /* Autofill styles for light mode */
+  input.light-mode:-webkit-autofill,
+  input.light-mode:-webkit-autofill:hover,
+  input.light-mode:-webkit-autofill:focus,
+  input.light-mode:-webkit-autofill:active {
+    -webkit-text-fill-color: #1a202c !important; /* text-black for light mode */
+    caret-color: #1a202c !important; /* text-black for light mode */
+    border: 1px solid #cbd5e0 !important; /* border-gray-300 for light mode */
+    background-color: #ffffff !important; /* bg-white for light mode */
+  }
+}
