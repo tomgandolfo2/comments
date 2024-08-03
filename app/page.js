@@ -72,7 +72,7 @@ const CommentGenerator = () => {
     }
 
     if (recognition) {
-      generatedComment += `Reconozco su ${recognition}. `;
+      generatedComment += `Reconozco ${recognition}. `;
     }
 
     if (improvementSuggestion) {
