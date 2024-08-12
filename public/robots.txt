@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://comments-navy.vercel.app/
+
+# Sitemaps
+Sitemap: https://comments-navy.vercel.app/sitemap.xml
