@@ -13,6 +13,7 @@ import RecognitionDropdown from "./components/RecognitionDropdown";
 import ImprovementSuggestionDropdown from "./components/ImprovementSuggestionDropdown";
 import CommentDisplay from "./components/CommentDisplay";
 import DarkModeToggle from "./components/DarkModeToggle";
+import ShareButtons from "./components/ShareButtons";
 
 const CommentGenerator = () => {
   const [name, setName] = useState("");
@@ -96,15 +97,17 @@ const CommentGenerator = () => {
 
   // Toggle dark mode
   const toggleDarkMode = () => setDarkMode(!darkMode);
+  const pageTitle = "Generador de Comentarios para Profesores";
+  const pageUrl = "https://comments-navy.vercel.app";
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center ${
+      className={`min-h-screen flex flex-col justify-between ${
         darkMode ? "bg-gray-900 text-gray-200" : "bg-blue-100 text-black"
       } transition duration-500 ease-in-out`}
     >
       <div
-        className={`p-8 rounded-lg shadow-lg w-full max-w-4xl flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 transition-colors duration-500 ease-in-out ${
+        className={`p-8 rounded-lg shadow-lg w-full max-w-4xl mx-auto flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 transition-colors duration-500 ease-in-out ${
           darkMode ? "bg-gray-800 text-gray-200" : "bg-white text-black"
         }`}
       >
@@ -155,6 +158,16 @@ const CommentGenerator = () => {
             darkMode={darkMode}
           />
           <CommentDisplay comment={comment} darkMode={darkMode} />
+        </div>
+      </div>
+
+      {/* Share Buttons Section */}
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold text-center text-blue-600 dark:text-blue-300 mb-4">
+          ¡Comparte esta herramienta!
+        </h2>
+        <div className="flex justify-center mb-8">
+          <ShareButtons url={pageUrl} title={pageTitle} />
         </div>
       </div>
     </div>
