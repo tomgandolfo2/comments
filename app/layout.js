@@ -72,9 +72,10 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es">
-      <body className={`${inter.className} bg-gray-50 text-gray-900`}>
+      {/* Set dark mode globally */}
+      <body className={`${inter.className} bg-gray-900 text-gray-200`}>
         <main className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-8">
-          <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden p-6 sm:p-8 md:p-12">
+          <div className="w-full max-w-4xl bg-gray-800 text-gray-200 shadow-lg rounded-lg overflow-hidden p-6 sm:p-8 md:p-12">
             {children}
           </div>
         </main>

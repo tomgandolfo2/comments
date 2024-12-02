@@ -1,177 +1,70 @@
-// app/page.js
-
 "use client";
 
-import React, { useState, useEffect } from "react";
-import NameInput from "./components/NameInput";
-import GenderDropdown from "./components/GenderDropdown";
-import GradeDropdown from "./components/GradeDropdown";
-import CognitiveProcessDropdown from "./components/CognitiveProcessDropdown";
-import EvidenceDropdown from "./components/EvidenceDropdown";
-import IbAttributeDropdown from "./components/IbAttributeDropdown";
-import RecognitionDropdown from "./components/RecognitionDropdown";
-import ImprovementSuggestionDropdown from "./components/ImprovementSuggestionDropdown";
-import CommentDisplay from "./components/CommentDisplay";
-import DarkModeToggle from "./components/DarkModeToggle";
-import ShareButtons from "./components/ShareButtons";
+import React, { useState } from "react";
+import CommentGenerator from "./components/CommentGenerator";
+import EndOfYearComment from "./components/EndOfYearComment";
 
-const CommentGenerator = () => {
-  const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
-  const [grade, setGrade] = useState("");
-  const [cognitiveProcessLabel, setCognitiveProcessLabel] = useState("");
-  const [cognitiveProcessGender, setCognitiveProcessGender] = useState("");
-  const [evidence, setEvidence] = useState("");
-  const [ibAttribute, setIbAttribute] = useState("");
-  const [ibReason, setIbReason] = useState("");
-  const [recognition, setRecognition] = useState("");
-  const [improvementSuggestion, setImprovementSuggestion] = useState("");
-  const [comment, setComment] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Real-time comment generation using useEffect
-  useEffect(() => {
-    let generatedComment = "";
-
-    if (name) {
-      generatedComment += `${name} `;
-    }
-
-    if (grade && cognitiveProcessLabel) {
-      switch (grade) {
-        case "9":
-        case "10":
-          generatedComment += `logra en gran medida ${cognitiveProcessLabel}. `;
-          break;
-        case "7":
-        case "8":
-          generatedComment += `logra en buena medida ${cognitiveProcessLabel}. `;
-          break;
-        case "5":
-        case "6":
-          generatedComment += `logra en cierta medida ${cognitiveProcessLabel}. `;
-          break;
-        default:
-          generatedComment += `logra con dificultades ${cognitiveProcessLabel}. `;
-          break;
-      }
-    }
-
-    const genderedPhrase =
-      cognitiveProcessGender === "femenino"
-        ? "Las mismas se evidencian"
-        : "Los mismos se evidencian";
-
-    if (evidence) {
-      generatedComment += `${genderedPhrase} ${evidence}. `;
-    }
-
-    if (ibAttribute && ibReason) {
-      generatedComment += `Destaco que ha desarrollado la habilidad ${ibAttribute} porque ${ibReason}. `;
-    } else if (ibAttribute) {
-      generatedComment += `Destaco que ha desarrollado la habilidad ${ibAttribute}. `;
-    }
-
-    if (recognition) {
-      generatedComment += `Reconozco ${recognition}. `;
-    }
-
-    if (improvementSuggestion) {
-      const pronoun = gender === "masculino" ? "Lo" : "La";
-      generatedComment += `${pronoun} aliento a ${improvementSuggestion}.`;
-    }
-
-    setComment(generatedComment);
-  }, [
-    name,
-    gender,
-    grade,
-    cognitiveProcessLabel,
-    cognitiveProcessGender,
-    evidence,
-    ibAttribute,
-    ibReason,
-    recognition,
-    improvementSuggestion,
-  ]);
-
-  // Toggle dark mode
-  const toggleDarkMode = () => setDarkMode(!darkMode);
-  const pageTitle = "Generador de Comentarios para Profesores";
-  const pageUrl = "https://comments-navy.vercel.app";
+const Page = () => {
+  const [activeTab, setActiveTab] = useState("juicios");
+  const [darkMode, setDarkMode] = useState(false); // Dark mode state
 
   return (
     <div
-      className={`min-h-screen flex flex-col justify-between ${
+      className={`min-h-screen transition-colors duration-500 ease-in-out ${
         darkMode ? "bg-gray-900 text-gray-200" : "bg-blue-100 text-black"
-      } transition duration-500 ease-in-out`}
+      }`}
     >
+      {/* Tabs Navigation */}
       <div
-        className={`p-8 rounded-lg shadow-lg w-full max-w-4xl mx-auto flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 transition-colors duration-500 ease-in-out ${
-          darkMode ? "bg-gray-800 text-gray-200" : "bg-white text-black"
+        className={`flex justify-center space-x-4 p-4 shadow ${
+          darkMode ? "bg-gray-800 text-gray-200" : "bg-gray-100 text-black"
         }`}
       >
-        <div className="w-full md:w-1/2 space-y-4 animate-fadeIn">
-          <h1 className="text-3xl font-bold text-center text-blue-600 dark:text-blue-300">
-            Generador de Comentarios
-          </h1>
-          <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          <NameInput value={name} onChange={setName} darkMode={darkMode} />
-          <GenderDropdown
-            value={gender}
-            onChange={setGender}
-            darkMode={darkMode}
-          />
-          <GradeDropdown
-            value={grade}
-            onChange={setGrade}
-            darkMode={darkMode}
-          />
-          <CognitiveProcessDropdown
-            setCognitiveProcessLabel={setCognitiveProcessLabel}
-            setCognitiveProcessGender={setCognitiveProcessGender}
-            darkMode={darkMode}
-          />
-          <EvidenceDropdown
-            value={evidence}
-            onChange={setEvidence}
-            darkMode={darkMode}
-          />
-          <IbAttributeDropdown
-            attributeValue={ibAttribute}
-            onAttributeChange={setIbAttribute}
-            reasonValue={ibReason}
-            onReasonChange={setIbReason}
-            darkMode={darkMode}
-          />
-        </div>
-
-        <div className="w-full md:w-1/2 space-y-4 animate-fadeIn">
-          <RecognitionDropdown
-            value={recognition}
-            onChange={setRecognition}
-            darkMode={darkMode}
-          />
-          <ImprovementSuggestionDropdown
-            value={improvementSuggestion}
-            onChange={setImprovementSuggestion}
-            darkMode={darkMode}
-          />
-          <CommentDisplay comment={comment} darkMode={darkMode} />
-        </div>
+        <button
+          onClick={() => setActiveTab("juicios")}
+          className={`px-4 py-2 rounded ${
+            activeTab === "juicios"
+              ? darkMode
+                ? "bg-blue-500 text-white"
+                : "bg-blue-600 text-white"
+              : darkMode
+              ? "bg-gray-700 text-blue-300"
+              : "bg-white text-blue-600"
+          }`}
+        >
+          Juicios
+        </button>
+        <button
+          onClick={() => setActiveTab("endOfYear")}
+          className={`px-4 py-2 rounded ${
+            activeTab === "endOfYear"
+              ? darkMode
+                ? "bg-blue-500 text-white"
+                : "bg-blue-600 text-white"
+              : darkMode
+              ? "bg-gray-700 text-blue-300"
+              : "bg-white text-blue-600"
+          }`}
+        >
+          Comentarios de Fin de Año
+        </button>
       </div>
 
-      {/* Share Buttons Section */}
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold text-center text-blue-600 dark:text-blue-300 mb-4">
-          ¡Comparte esta herramienta!
-        </h2>
-        <div className="flex justify-center mb-8">
-          <ShareButtons url={pageUrl} title={pageTitle} />
-        </div>
+      {/* Conditional Rendering */}
+      <div
+        className={`p-8 ${
+          darkMode ? "bg-gray-800 text-gray-200" : "bg-white text-black"
+        } rounded-lg shadow-lg max-w-6xl mx-auto`}
+      >
+        {activeTab === "juicios" && (
+          <CommentGenerator darkMode={darkMode} setDarkMode={setDarkMode} />
+        )}
+        {activeTab === "endOfYear" && (
+          <EndOfYearComment darkMode={darkMode} setDarkMode={setDarkMode} />
+        )}
       </div>
     </div>
   );
 };
 
-export default CommentGenerator;
+export default Page;
