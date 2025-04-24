@@ -11,79 +11,67 @@ const CognitiveProcessDropdown = ({
 }) => {
   const cognitiveProcesses = [
     {
-      label:
-        "aplicar los conocimientos trabajados en clase para resolver problemas prácticos",
+      label: "aplicar los conocimientos en tareas prácticas",
       gender: "masculino",
     },
     {
-      label:
-        "analizar problemas complejos utilizando pensamiento crítico y lógico",
+      label: "analizar textos utilizando pensamiento crítico",
       gender: "masculino",
     },
     {
-      label:
-        "sintetizar información de múltiples fuentes para formar una comprensión clara",
+      label: "sintetizar información relevante de textos variados",
       gender: "femenino",
     },
     {
-      label:
-        "crear soluciones innovadoras mediante la combinación de ideas creativas",
+      label: "crear textos originales combinando ideas creativas",
+      gender: "masculino",
+    },
+    {
+      label: "evaluar opiniones y argumentos en debates",
+      gender: "masculino",
+    },
+    {
+      label: "inferir significados a partir del contexto",
+      gender: "masculino",
+    },
+    {
+      label: "interpretar mensajes en textos y audios",
+      gender: "masculino",
+    },
+    {
+      label: "traducir conceptos complejos en lenguaje sencillo",
+      gender: "masculino",
+    },
+    {
+      label: "integrar vocabulario nuevo en situaciones comunicativas",
+      gender: "masculino",
+    },
+    {
+      label: "clasificar ideas y conceptos clave de textos estudiados",
       gender: "femenino",
     },
     {
-      label:
-        "evaluar argumentos y evidencia para desarrollar opiniones fundamentadas",
+      label: "comparar diferentes puntos de vista en textos",
       gender: "masculino",
     },
     {
-      label:
-        "inferir significados subyacentes en textos para una comprensión más profunda",
+      label: "generalizar reglas gramaticales a contextos nuevos",
       gender: "masculino",
     },
     {
-      label:
-        "interpretar mensajes complejos y comunicar ideas clave claramente",
-      gender: "masculino",
-    },
-    {
-      label: "traducir conceptos abstractos en términos claros y comprensibles",
-      gender: "masculino",
-    },
-    {
-      label:
-        "integrar conocimientos de diversas áreas para abordar problemas interdisciplinares",
-      gender: "masculino",
-    },
-    {
-      label:
-        "clasificar información sistemáticamente para facilitar el análisis",
+      label: "predecir información a partir de pistas contextuales",
       gender: "femenino",
     },
     {
-      label:
-        "comparar distintas perspectivas para entender similitudes y diferencias",
+      label: "clarificar dudas sobre estructuras gramaticales complejas",
       gender: "femenino",
     },
     {
-      label:
-        "generalizar principios aprendidos y aplicarlos a nuevos contextos",
+      label: "decodificar mensajes orales y escritos en inglés",
       gender: "masculino",
     },
     {
-      label: "predecir tendencias basándose en datos y patrones observados",
-      gender: "femenino",
-    },
-    {
-      label:
-        "clarificar conceptos complejos para asegurar una comprensión adecuada",
-      gender: "masculino",
-    },
-    {
-      label: "decodificar mensajes complejos para revelar su significado",
-      gender: "masculino",
-    },
-    {
-      label: "razonar sobre el uso del lenguaje para mejorar la comunicación",
+      label: "razonar sobre el uso adecuado del idioma",
       gender: "masculino",
     },
   ];
