@@ -21,45 +21,57 @@ const EvidenceDropdown = ({ value, onChange, darkMode }) => {
         onChange={(e) => onChange(e.target.value)}
       >
         <option value="">Seleccione Evidencia</option>
-        <option value="en las actividades de clase">
-          en las actividades de clase
+        <option value="en actividades del libro de clase">
+          en actividades del libro de clase
         </option>
-        <option value="en las pruebas formativas">
-          en las pruebas formativas
+        <option value="en tareas orales grupales">
+          en tareas orales grupales
         </option>
-        <option value="en las pruebas sumativas">
-          en las pruebas sumativas
+        <option value="en presentaciones individuales">
+          en presentaciones individuales
         </option>
-        <option value="al intervenir en clase">al intervenir en clase</option>
-        <option value="en tareas grupales">en tareas grupales</option>
-        <option value="en el parcial">en el parcial</option>
-        <option value="al realizar tareas prácticas">
-          al realizar tareas prácticas
+        <option value="en presentaciones grupales">
+          en presentaciones grupales
         </option>
-        <option value="en su desempeño diario">en su desempeño diario</option>
-        <option value="en la participación en debates">
-          en la participación en debates
+        <option value="en pruebas sumativas escritas">
+          en pruebas sumativas escritas
         </option>
-        <option value="en la realización de proyectos">
-          en la realización de proyectos
+        <option value="en pruebas orales">en pruebas orales</option>
+        <option value="al participar en discusiones en clase">
+          al participar en discusiones en clase
         </option>
-        <option value="en la aplicación de teorías">
-          en la aplicación de teorías
+        <option value="en tareas prácticas en parejas">
+          en tareas prácticas en parejas
         </option>
-        <option value="al analizar textos complejos">
-          al analizar textos complejos
+        <option value="al redactar textos breves en clase">
+          al redactar textos breves en clase
         </option>
-        <option value="en la síntesis de información">
-          en la síntesis de información
+        <option value="en ejercicios de comprensión auditiva">
+          en ejercicios de comprensión auditiva
         </option>
-        <option value="al resolver problemas complejos">
-          al resolver problemas complejos
+        <option value="en ejercicios de comprensión lectora">
+          en ejercicios de comprensión lectora
         </option>
-        <option value="en la creación de soluciones innovadoras">
-          en la creación de soluciones innovadoras
+        <option value="al completar tareas colaborativas en clase">
+          al completar tareas colaborativas en clase
         </option>
-        <option value="en la interpretación de datos">
-          en la interpretación de datos
+        <option value="en la elaboración de proyectos en equipo">
+          en la elaboración de proyectos en equipo
+        </option>
+        <option value="al utilizar nuevo vocabulario en contexto">
+          al utilizar nuevo vocabulario en contexto
+        </option>
+        <option value="en ejercicios gramaticales específicos">
+          en ejercicios gramaticales específicos
+        </option>
+        <option value="al intervenir espontáneamente en inglés">
+          al intervenir espontáneamente en inglés
+        </option>
+        <option value="en tareas escritas formativas">
+          en tareas escritas formativas
+        </option>
+        <option value="en tareas prácticas individuales">
+          en tareas prácticas individuales
         </option>
       </select>
     </div>
