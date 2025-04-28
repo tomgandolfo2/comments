@@ -51,7 +51,7 @@ const CognitiveProcessDropdown = ({
       gender: "femenino",
     },
     {
-      label: "comparar diferentes puntos de vista en textos",
+      label: "comparar diferentes puntos de vista",
       gender: "masculino",
     },
     {
