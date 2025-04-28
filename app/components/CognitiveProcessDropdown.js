@@ -19,7 +19,7 @@ const CognitiveProcessDropdown = ({
       gender: "masculino",
     },
     {
-      label: "sintetizar información relevante de textos variados",
+      label: "sintetizar información relevante de fuentes variados",
       gender: "femenino",
     },
     {
@@ -47,7 +47,7 @@ const CognitiveProcessDropdown = ({
       gender: "masculino",
     },
     {
-      label: "clasificar ideas y conceptos clave de textos estudiados",
+      label: "clasificar ideas y conceptos clave estudiados",
       gender: "femenino",
     },
     {
